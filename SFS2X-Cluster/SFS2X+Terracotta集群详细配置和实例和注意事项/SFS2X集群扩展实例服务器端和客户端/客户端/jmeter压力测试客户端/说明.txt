@@ -1,0 +1,16 @@
+使用jmeter测试工具来完成并发模拟多用户同时登陆并发送消息等功能。
+
+1、将项目打成jar包，放到jmeter安装目录\lib\ext\目录下
+
+2、将项目依赖的jar包，放到jmeter安装目录\lib\目录下
+
+3、将客户端的配置文件sfs-config.xml配置文件放到jmeter安装目录下\bin\目录下
+
+4、运行jmeter
+
+5、在测试计划右键添加线程组，设置线程组(略)。在线程组右键添加Sampler,选择Java 请求，然后在类名称中选择test.performance.sfs2x.TestClient
+
+6、开始测试。
+
+
+

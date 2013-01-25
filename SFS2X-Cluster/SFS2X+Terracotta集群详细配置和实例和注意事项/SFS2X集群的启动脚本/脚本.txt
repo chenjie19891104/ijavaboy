@@ -1,0 +1,10 @@
+@java -Xbootclasspath/p:"D:/Terracotta/terracotta-ee-3.6.1/lib/dso-boot/dso-boot-hotspot_win32_160_22.jar" -Dtc.install-root=D:/Terracotta/terracotta-ee-3.6.1 -Dtc.config=tc-cluster.xml -cp "./;lib/*;lib/Jetty/*;extensions/__lib__/*" -Dfile.encoding=GBK com.smartfoxserver.v2.Main 1% %2 %3
+
+上面启动脚本需要注意的地方：
+
+
+1、将涉及到Terracotta安装目录的地方更换为集群中每一个节点上Terracotta安装的真实安装目录
+
+2、同时确保在SFS2X\目录下有tc-config.xml配置文件。
+
+3、-Dfile.encoding=GBK 确保SFS2X控制台可以输出中文信息

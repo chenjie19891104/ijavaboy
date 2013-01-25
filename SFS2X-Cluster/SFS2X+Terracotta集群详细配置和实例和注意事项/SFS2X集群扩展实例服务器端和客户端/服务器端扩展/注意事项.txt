@@ -1,0 +1,19 @@
+1、配置集群中每一个节点的SFS2X,使用admin tool创建一个新的zone,命名为clustering.
+
+2、配置该zone的扩展信息,将扩展名称写为cluster(这个必须，实例中对该名称的扩展使用了自定义的ClassLoader)。
+
+3、同时，配置扩展的扩展类路径
+
+4、到SFS2X\extensions目录下，创建一个cluster文件夹(这个需要和上面第二步扩展名保持一致)。
+
+5、将cluster.jar包放入cluster文件夹下面
+
+6、在SFS2X\目录下，新建一个cluster-server.properties文件,里面内容是：
+
+ip=该节点的IP
+
+port=该节点上SFS2X配置的端口号
+
+(如果没有该配置文件，将使用默认的端口号(9933)和本机IP)
+
+7、到SFS2X目录下启动自己写的启动脚本--sfs2x-cluster.bat

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SmartFoxConfig>
+
+	<ip>192.168.168.88</ip>
+	<port>9933</port>
+	<zone>clustering</zone>
+	
+	<debug>true</debug>
+	
+	<udpIp>192.168.168.88</udpIp>
+	<udpPort>9934</udpPort>
+	
+	<httpPort>8080</httpPort>
+	<useBlueBox>true</useBlueBox>
+	<blueBoxPollingRate>500</blueBoxPollingRate>
+	
+</SmartFoxConfig>

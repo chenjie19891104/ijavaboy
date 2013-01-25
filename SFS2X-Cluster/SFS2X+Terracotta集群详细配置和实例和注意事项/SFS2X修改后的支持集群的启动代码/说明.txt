@@ -1,0 +1,12 @@
+因为SFS2X使用新定义的ClassLoader(URLClassLoader)来启动每一个Extensions
+
+而Terracotta集群中需要对加载共享数据的ClassLoader进行命名,这个名称在全集群范围内唯一。
+Terracotta根据ClassLoader的名称来保证共享数据的实时更新和同步
+
+所以，重新实现了SFS2X的启动代码。打包后是boot.jar
+
+1、将SFS2X\lib目录下的boot.jar给备份一下
+
+2、将该文件夹下的boot.jar和tim-api-1.3.0.jar拷贝到SFS2X\lib目录下
+
+这样,完成启动代码的替换
