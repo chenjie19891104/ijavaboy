@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'TitilliumText400wt';
+	src: url('../../fonts/titillium/titilliumtext400wt.eot');
+	src: local('☺'), url('../../fonts/titillium/titilliumtext400wt.woff') format('woff'), url('../../fonts/titillium/titilliumtext400wt.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'TitilliumText999wt';
+	src: url('../../fonts/titillium/titilliumtext999wt.eot');
+	src: local('☺'), url('../../fonts/titillium/titilliumtext999wt.woff') format('woff'), url('../../fonts/titillium/titilliumtext999wt.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'TitilliumText400wt', sans-serif;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+	font-family: 'TitilliumText999wt', sans-serif;
+}
+
+#nav {
+	font-family: 'TitilliumText400wt', sans-serif;
+	font-size: 14px;
+	text-transform: none;
+}

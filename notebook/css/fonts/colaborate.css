@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'ColabReg';
+	src: url('../../fonts/colaborate/colabreg.eot');
+	src: local('☺'), url('../../fonts/colaborate/colabreg.woff') format('woff'), url('../../fonts/colaborate/colabreg.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'ColabBol';
+	src: url('../../fonts/colaborate/colabbol.eot');
+	src: local('☺'), url('../../fonts/colaborate/olabbol.woff') format('woff'), url('../../fonts/colaborate/colabbol.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'ColabReg', sans-serif;
+}
+
+h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong {
+	font-family: 'ColabBol', sans-serif;
+}
+
+#nav {
+	font-family: 'ColabReg', sans-serif;
+}

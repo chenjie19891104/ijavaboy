@@ -1,0 +1,232 @@
+#comments-template {
+	float: left;
+	width: 100%;	
+	margin: 30px 0;
+}
+
+.comments-wrap {
+	overflow: hidden;
+	border: 1px solid #dfdfdf;
+}
+
+/** Comment Headers
+==============================================================================*/
+
+#comments-number {
+	padding: 0 0 10px 0;
+}
+
+#comments-number,
+#reply-title,
+.comments-header {
+	margin: 0;
+	padding: 0 0 10px 16px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+/* Comments */
+#comments {
+	padding: 8px 0 0;
+}
+	
+/* Comment pagination. */
+.comments-nav {
+	float: right;
+	line-height: 29px;
+	margin: 10px 20px;
+}
+
+.comments-nav .page-numbers {
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #777;
+	margin-right: 10px;
+}
+
+.comments-nav .prev {
+	display: inline-block;
+	height: 29px;
+	width: 29px;
+	margin-left: 10px;
+}
+
+.comments-nav .next {
+	display: inline-block;
+	height: 29px;
+	width: 29px;
+	margin-left: 10px;
+}
+
+/** Comment List
+==============================================================================*/
+
+ol.comment-list {
+	margin: 1px 1px 8px 1px;
+	border-top: 1px solid #e5e5e5;
+}
+
+.comment-list li {
+	padding: 20px 0 0 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.comment-list li.comment-author-admin {
+	background: #ffffe5;
+}
+
+.comment-list li.bypostauthor {
+	background: #e9f5fe;
+}
+
+.comment-list li li {
+	border-top: 1px solid #e5e5e5;
+	border-bottom: none;
+}
+
+.comment-wrap {
+	overflow: hidden;
+	background: #fff;
+}
+
+.comment-list li .comment-body { padding: 0 20px; }
+.comment-list li li .comment-body { padding-left: 40px; }
+.comment-list li li li .comment-body { padding-left: 60px; }
+.comment-list li li li li .comment-body { padding-left: 80px; }
+.comment-list li li li li li .comment-body { padding-left: 100px; }
+.comment-list li li li li li li .comment-body { padding-left: 120px; }
+.comment-list li li li li li li li .comment-body { padding-left: 140px; }
+.comment-list li li li li li li li li .comment-body { padding-left: 160px; }
+.comment-list li li li li li li li li li .comment-body { padding-left: 180px; }
+.comment-list li li li li li li li li li li .comment-body { padding-left: 200px; }
+
+.comment-list li .comment-body {
+	padding-bottom: 20px;
+}
+
+ol.comment-list .avatar {
+	float: left;
+	margin: 0 10px 0 0;
+	border: 1px solid #ddd;
+}
+
+.comment-meta {
+	font-size: 11px;
+	margin: 0 0 15px 0;
+	padding: 0 0 15px 0;
+	color: #ccc;
+	border-bottom: 1px dotted #ddd;
+}
+
+.comment-author cite {
+	font-style: normal;
+	font-weight: bold;
+	color: #777;
+}
+
+.comment-author .says {
+	color: #999;
+}
+
+#reply-title small a,
+.comment-reply-link {
+	clear: both;
+	font-size: 10px;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	background: #fafafa;
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+.reply a:hover,
+#reply-title small a:hover {
+	color: #fff;
+	background-color: #333;
+	border-color: #000;
+	cursor: pointer;
+}
+
+.pingback .reply {
+	display: none;
+}
+
+.comment-body p {
+	margin: 0 0 30px 0;
+	font-size: 12px;
+	line-height: 20px;
+	color: #777;
+}
+
+/** Respond
+==============================================================================*/
+
+#reply-title small a {
+	float: right;
+	margin: 0 20px 0 0;
+	padding: 0 10px;
+}
+
+p.comment-notes {
+	display: none;
+}
+
+#respond form {
+	width: 543px;
+	padding: 16px;
+	background: #efefef;
+}
+
+#respond label {
+	display: block;
+	font-size: 12px;
+	padding: 0 0 5px 0;
+}
+
+#commentform .required {
+	display: none;
+}
+
+#respond p {
+	margin: 0 0 15px;	
+}
+
+#respond textarea,
+#respond input[type="text"],
+#respond input[type="email"],
+#respond input[type="url"] {
+	width: 80%;
+	padding: 6px 15px;	
+	border: 1px solid #dadada;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	background: #fafafa;
+}
+
+#respond textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+#respond input[type="text"]:focus,
+#respond input[type="email"]:focus,
+#respond input[type="url"]:focus,
+#respond textarea:focus {
+	background: #ffffe5;
+}
+
+p.form-allowed-tags {
+	wid
+	font-size: 11px;
+}
+
+p.form-allowed-tags code {
+	margin-top: 10px;
+}
+
+#submit:hover {
+	cursor: pointer;
+}

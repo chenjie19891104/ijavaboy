@@ -1,0 +1,13 @@
+<style type="text/css">
+body {<?php if(get_option("ct_font_family", $single = true) !="") { echo stripslashes("font-family: " . get_option("ct_font_family", $single = true)) . ";"; } ?> <?php if(get_option("ct_font_size", $single = true) !="") { echo "font-size: " . get_option("ct_font_size", $single = true) . ";"; } ?> <?php if(get_option("ct_line_height", $single = true) !="") { echo "line-height: " . get_option("ct_line_height", $single = true) . ";"; } ?> <?php if(get_option("ct_font_color", $single = true) !="") { echo "color: " . get_option("ct_font_color", $single = true) . ";"; } ?> <?php if(get_option("ct_body_color", $single = true) !="") { echo "background-color: #" . get_option("ct_body_color", $single = true) . ";"; } ?> <?php if(get_option("ct_body_image", $single = true) !="") { echo "background-image: url(" . get_option("ct_body_image", $single = true) . ");"; } ?> <?php if(get_option("ct_body_position", $single = true) !="") { echo "background-position: " . get_option("ct_body_position", $single = true) . ";"; } ?> <?php if(get_option("ct_body_repeat", $single = true) !="") { echo "background-repeat: " . get_option("ct_body_repeat", $single = true) . ";"; } ?>}
+<?php if(get_option("ct_header_color", $single = true) !="") { echo "header {border-color: #" . get_option("ct_header_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_tagbar_tbrd_color", $single = true) !="") { echo "#toolbar {border-top-color: #" . get_option("ct_tagbar_tbrd_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_tagbar_color", $single = true) !="") { echo "#toolbar {background: #" . get_option("ct_tagbar_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_tagbar_btmbrd_color", $single = true) !="") { echo "#toolbar {border-bottom-color: #" . get_option("ct_tagbar_btmbrd_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_link_color", $single = true) !="") { echo "a:link {color: #" . get_option("ct_link_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_vlink_color", $single = true) !="") { echo "a:visited {color: #" . get_option("ct_vlink_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_hlink_color", $single = true) !="") { echo "a:hover {color: #" . get_option("ct_hlink_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_alink_color", $single = true) !="") { echo "a:active {color: #" . get_option("ct_alink_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_featured_bg_color", $single = true) !="") { echo "#featured {background-color: #" . get_option("ct_featured_bg_color", $single = true) . ";}"; } ?>
+<?php if(get_option("ct_extrastyles", $single = true) !="") { echo get_option("ct_extrastyles", $single = true); } ?>
+</style>

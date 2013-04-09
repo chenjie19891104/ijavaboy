@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'MuseoSans500';
+	src: url('../../fonts/museosans/museosans_500.eot');
+	src: local('☺'), url('../../fonts/museosans/museosans_500.woff') format('woff'), url('../../fonts/museosans/museosans_500.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'MuseoSans500Italic';
+	src: url('../../fonts/museosans/museosans_500_italic.eot');
+	src: local('☺'), url('../../fonts/museosans/museosans_500_italic.woff') format('woff'), url('../../fonts/museosans/museosans_500_italic.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'MuseoSans500', sans-serif;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+	font-family: 'MuseoSans500italic';
+}
+
+#nav {
+	font-family: 'MuseoSans500', sans-serif;
+}

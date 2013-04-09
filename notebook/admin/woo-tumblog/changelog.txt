@@ -1,0 +1,14 @@
+*** WooTumblog Changelog ***
+
+2010.11.09 - version 1.0.3
+ * functions/wootumblog_template_functions.php - Modified woo_tumblog_the_title() to take an additional parameter for element type.
+ * classes/wootumblog.class.php - Modified contextual help for the above function change.
+ 
+2010.11.04 - version 1.0.2
+ * functions/wootumblog_dashboard_functions.php - Sidebar manager does not load tumblog styles. Fixed date and time posting issue.
+
+2010.10.27 - version 1.0.1
+ * functions/css/tumblog_admin_styles.css - Removed "#content_ifr" to fix bug with new post dialogue.
+
+2010.10.20 - version 1.0.0
+ * First release!

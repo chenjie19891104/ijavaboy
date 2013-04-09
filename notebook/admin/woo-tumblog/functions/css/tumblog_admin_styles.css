@@ -1,0 +1,201 @@
+/*
+* Tumblog CSS
+*/
+
+/* Editor Styling
+----------------------------------*/
+
+#tumblog-menu  { margin: 10px 0 0; padding: 0 0 0 0; }
+#tumblog-menu a  { margin: 0 5px 5px 0; background-color: #f1f1f1!important; border:1px solid #dcdcdc; line-height: 40px; padding: 6px 10px 6px 0; -moz-border-radius-bottomleft:4px; -moz-border-radius-bottomright:4px; -moz-border-radius-topleft:4px; -moz-border-radius-topright:4px; }
+#tumblog-menu a:hover  { background-color: #e7e7e7!important; }
+#tumblog-menu #articles-menu-button  { padding-left: 33px; background: url(../images/btn-tumblog-note.png) no-repeat 10px center; }
+#tumblog-menu #images-menu-button  { padding-left: 39px; background: url(../images/btn-tumblog-image.png) no-repeat 10px center; }
+#tumblog-menu #links-menu-button  { padding-left: 44px; background: url(../images/btn-tumblog-link.png) no-repeat 10px center; }
+#tumblog-menu #audio-menu-button  { padding-left: 28px; background: url(../images/btn-tumblog-audio.png) no-repeat 10px center; }
+#tumblog-menu #videos-menu-button  { padding-left: 36px; background: url(../images/btn-tumblog-video.png) no-repeat 10px center; }
+#tumblog-menu #quotes-menu-button  { padding-left: 41px; background: url(../images/btn-tumblog-quote.png) no-repeat 10px center; }
+#tumblog-menu #chat-menu-button  { padding-left: 26px; display: none; }
+
+#tumblog-post  { position: relative; }
+#tumblog-post h4  { font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif; font-weight: bold; }
+#article-fields, #video-fields, #image-fields, #link-fields, #audio-fields, #quote-fields, #tag-fields  { margin: 15px 0 0 0; }
+#article-fields input, #video-fields input, #image-fields input, #link-fields input, #audio-fields input, #quote-fields input,
+#article-fields textarea, #video-fields textarea, #image-fields textarea, #link-fields textarea, #audio-fields textarea, #quote-fields textarea, #tag-fields input  { 
+margin: 4px 0 13px 0;
+-moz-border-radius-bottomleft:4px;
+-moz-border-radius-bottomright:4px;
+-moz-border-radius-topleft:4px;
+-moz-border-radius-topright:4px; border: 1px solid #DFDFDF!important;
+width: 100%; }
+
+#article-fields input, #video-fields input, #image-fields input, #link-fields input, #audio-fields input, #quote-fields input, #tag-fields input  { padding-top: 6px; padding-bottom: 3px; }
+
+#tumblog-post h4 label  { padding: 0 20px 0 0; }
+#tumblog-post h4 #image-url-button, #tumblog-post h4 #image-upload-button, #tumblog-post h4 #audio-url-button, #tumblog-post h4 #audio-upload-button  { padding: 0 0 0 20px; font-family: Georgia, serif; font-style: italic; font-weight: normal;}
+
+#ajax-loader  { position: absolute; top: 10px; right: 10px; }
+#tumblog-post .error  { display: block; padding-top: 8px; padding-bottom: 8px; font-weight: bold; }
+#tumblog-post .success  { -moz-border-radius-bottomleft:3px;
+-moz-border-radius-bottomright:3px;
+-moz-border-radius-topleft:3px;
+-moz-border-radius-topright:3px; background-color: #c5f0bf; border: 1px solid #2b931d; display: block; padding-left: 10px; padding-top: 8px; padding-bottom: 8px; font-weight: bold;  }
+
+#content-fields  { margin: 0 0 10px 0; }
+
+#image_upload_button, #audio_upload_button {
+cursor: pointer!important; width: 200px!important;
+}
+
+.hide-fields {
+display: none;
+}
+
+#quicktags {
+background-color:#DFDFDF;
+border-color:#DFDFDF;
+}
+#ed_toolbar input {
+border-color:#C3C3C3;
+}
+#ed_toolbar input:hover {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:#DDDDDD none repeat scroll 0 0;
+border-color:#AAAAAA;
+}
+#content-fields .wp_themeSkin .mceStatusbar {
+border-color:#EDEDED;
+}
+#content-fields #edButtonPreview, #content-fields #edButtonHTML {
+background-color:#F1F1F1;
+border-color:#DFDFDF;
+color:#999999;
+}
+#content-fields #editor-toolbar .active {
+background-color:#E9E9E9;
+border-bottom-color:#E9E9E9;
+color:#333333;
+}
+
+#content-fields #add-media-button {
+float:right;
+margin:7px 0 0;
+position:relative;
+right:10px;
+}
+#content-fields #editor-toolbar {
+height:30px;
+}
+.wp_themeSkin tr.mceFirst td.mceToolbar {
+border-style:none none solid;
+border-width:0 0 1px;
+}
+#edButtonPreview, #edButtonHTML {
+-moz-border-radius-bottomleft:0;
+-moz-border-radius-bottomright:0;
+-moz-border-radius-topleft:3px;
+-moz-border-radius-topright:3px;
+border-style:solid;
+border-width:1px;
+cursor:pointer;
+float:right;
+height:18px;
+margin:5px 5px 0 0;
+padding:4px 5px 2px;
+}
+.js .theEditor {
+color:white;
+}
+#content-fields #edButtonHTML {
+margin-right:15px;
+}
+#media-buttons {
+cursor:default;
+padding:8px 8px 0;
+}
+#media-buttons a {
+cursor:pointer;
+padding:0 0 5px 10px;
+}
+#media-buttons img, #submitpost #ajax-loading {
+vertical-align:middle;
+}
+
+.tumblog-title {
+-moz-border-radius-bottomleft:6px;
+-moz-border-radius-bottomright:6px;
+-moz-border-radius-topleft:6px;
+-moz-border-radius-topright:6px;
+border-style:solid;
+border-width:1px;
+font-size:1.7em;
+outline-color:-moz-use-text-color;
+outline-style:none;
+outline-width:medium;
+padding:3px 4px;
+width:100%;
+}
+
+.editorwidth { width:100% !important; }
+
+.hide-cat { display:none; }
+
+#advanced-options-toggle { float:right; }
+
+.tumblog-time { width:30px; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* WooTumblog admin styles */
+/*-------------------------------------------------------------------------------------------*/
+
+#woo_container .updated, #woo_container .error {margin-top: -10px} /* disable the admin notices */
+
+#woo_container  { margin: 15px; width: 785px; position:relative; z-index: 0 }
+
+#woo_container #header  { height: 80px; background: url(../images/headertile.jpg) repeat-x left top; border: 1px solid #a4bbcd; border-top-left-radius: 15px; -moz-border-radius-topleft: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border-top-right-radius: 15px; -moz-border-radius-topright: 15px;  }
+
+#woo_container #header .logo  { float: left; margin: 24px 0 0 25px; height: 35px; }
+#woo_container #header .theme-info  { float: right; margin: 26px 25px 0 0; }
+#woo_container #header .theme-info span  { display: block; line-height: 15px; text-transform: uppercase; text-align: right; color: #4e4e4e; text-shadow: 1px 1px 0 #fff; }
+#woo_container #header .theme-info .theme  { font-size: 15px; font-weight: bold; }
+#woo_container #header .theme-info .framework  { font-size: 12px; }
+
+#woo_container #support-links  { height: 32px; padding: 0 0 0 20px; background-color: #d7e6f2; border-top: 1px solid #f1f6fa; border-bottom: 1px solid #a4bbcd; border-left: 1px solid #d8d8d8; border-right: 1px solid #d8d8d8; }
+#woo_container #support-links ul li  { display: inline; margin: 0 6px 0 0; }
+#woo_container #support-links ul li a:link, #support-links ul li a:visited  { line-height: 32px; font-size: 10px; font-weight: bold; text-transform: uppercase; text-decoration: none; color: #21759b; text-shadow: 1px 1px 0 #fff; }
+#woo_container #support-links ul li a:hover  { color: #155876; }
+#woo_container #support-links ul li.changelog  { padding: 2px 0 2px 20px; background: url(../images/ico-changelog.png) no-repeat left center; }
+#woo_container #support-links ul li.docs  { padding: 1px 0 1px 20px; background: url(../images/ico-docs.png) no-repeat left top; }
+#woo_container #support-links ul li.forum  { padding: 1px 0 1px 20px; background: url(../images/ico-forum.png) no-repeat left top; }
+#woo_container #support-links ul li.right { float:right; margin-right:20px}
+
+#woo_container #main  { background-color: #f1f1f1; border-left: 1px solid #d8d8d8; border-right: 1px solid #d8d8d8; border-bottom: 1px solid #d8d8d8; }
+#woo_container #content  { min-height: 300px; width: 743px; margin-left: -1px; padding: 30px 20px 10px; font-family: "Lucida Grande", Sans-serif; background-color: #fff; border-left: 1px solid #d8d8d8; }
+#woo_container #content h2  { margin: 0 0 20px; font: italic 20px Georgia, Times, Serif; }
+
+#woo_container #content form p   { margin: 0 0 25px 0; padding: 0; }
+#woo_container #content form select, #woo_container #content form input[type=text]  { border-style:solid; border-width: 1px; margin-bottom: 9px !important; background-color: #f1f1f1; border: 1px solid; border-color: #ccc #e6e6e6 #e6e6e6 #ccc; width: 340px; padding: 4px; font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana,sans-serif; font-size: 12px; -moz-border-radius-bottomleft:4px; -moz-border-radius-bottomright:4px; -moz-border-radius-topleft:4px; -moz-border-radius-topright:4px; }
+#woo_container #content form input[type=submit]  { margin: -10px 0 20px; padding:3px 20px; }
+#woo_container #content form label  { display: block; margin: 0 0 10px 0; padding: 0 7px 7px 0; font-size: 14px; font-weight: bold; border-bottom:1px solid #E7E7E7; }
+#woo_container #content form span.secondary-label  { padding: 0 0 0 10px; font-size: 11px; color: #999; }
+#woo_container #content form span.px  { padding: 0 0 0 5px; }
+
+#woo_container .woo-save-popup { position:absolute; -moz-border-radius:12px; background:rgba(0,0,0,0.4); color:#fff; font-size:24px; text-align:center; display:none}
+#woo_container .woo-save-save { background:url(images/happy.png) 20px 50% no-repeat; padding:30px 30px 30px 70px}
+#woo_container .woo-save-reset { background:url(images/warning.png) 20px 50% no-repeat; padding:30px 30px 30px 70px}
+
+.upload_button_div { margin-bottom: 10px;}
+.upload_button_div .button { padding:4px 14px;
+}
+.upload_button_div  .image_reset_button { margin-left:10px}
+
+.upload-error { float:left;color:#666; font-size:10px; font-weight:bold; text-decoration:none; text-shadow:1px 1px 0 #FFFFFF;
+				  margin: 0 10px 0 0; padding:3px 10px; background:#FFDFEC; -moz-border-radius:4px}
+
+.reset-button { background:#c77 none !important;color:white!important;text-shadow:0 1px 0 #555 !important;}
+.save_bar_top { background: #f3f3f3; border:solid #ccc; border-width:0px 1px 1px 1px; padding: 10px 20px 0px 20px; height: 35px; text-align: right;}
+.hide {display:none}
+
+.ajax-loading-img-top { margin: 8px 4px 0; float:left}
+.ajax-loading-img-bottom {}

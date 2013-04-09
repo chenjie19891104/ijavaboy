@@ -1,0 +1,48 @@
+/** Misc
+==============================================================================*/
+.left { float: left;}
+.right { float: right;}
+#poststuff h2 { margin-bottom: 5px;}
+#poststuff h2.group { margin-top: 48px; font-weight: bold; text-transform: uppercase; font-size: 16px; border-top: 1px solid #dfdfdf; border-bottom: 1px solid #dfdfdf;}
+#poststuff h3 { cursor: auto;}
+ul.small { width: 530px; padding: 10px; border: 1px solid #dfdfdf; font-size: 10px;}
+ul.small li { list-style: inside disc;}
+
+/** CP Options
+==============================================================================*/
+#cpoptions { margin: 16px 0 16px 0; padding: 0 0 12px 0; background: url(../images/cpoptions_bg.jpg) repeat-y;}
+#cpoptions h3 {font-size: 18px; padding-top: 18px; padding-bottom: 18px;}
+
+/** Save Settings
+==============================================================================*/
+#savesettings { padding: 4px 10px; background: #f1f1f1; font-size: 11px; border-top: 1px solid #fff; border-bottom: 1px solid #dfdfdf;}
+#savesettings a { position: relative; top: 6px; text-decoration: none; text-transform: uppercase;}
+
+/** Postbox Width Override
+==============================================================================*/
+.postbox { width: 800px;}
+
+/** Tabs
+==============================================================================*/
+#cpoptions div:first, #innerhomeoptionswrap div:first, #innerfeaturedoptionswrap div:first {display: block;}
+.adminoptions, .inneradminoptions { display: none;}
+#cpoptions ul#optionsnav { width: 200px; margin: 0; padding: 0 0 48px 0;; list-style-type: none; border-right: 1px solid #dfdfdf; background: #f1f1f1;}
+#cpoptions ul#optionsnav li { margin: 0;}
+#cpoptions ul#optionsnav li a { display: block; padding: 12px; background: #f1f1f1; text-decoration: none; border-bottom: 1px solid #dfdfdf;}
+#cpoptions ul#optionsnav li.tabsactive a { width: 177px; background: #fff;}
+
+ul#inneroptionsnav { width: 550px; margin: 15px 0 15px 0; padding: 0; border-bottom: 1px solid #dfdfdf;}
+ul#inneroptionsnav li { float: left; margin: 0;}
+ul#inneroptionsnav li a { display: block; float: left; padding: 12px; margin: 0 2px 0 0; border-top: 1px solid #dfdfdf; border-right: 1px solid #dfdfdf; border-left: 1px solid #dfdfdf; background: #fff; text-decoration: none;}
+ul#inneroptionsnav li.tabsactive a { position: relative; top: 1px;}
+
+/** Admin Options Wrap
+==============================================================================*/
+.adminoptions { width: 577px;}
+
+/** Form Elements
+==============================================================================*/
+.adminoptions input, .adminoptions select { width: 550px;}
+.adminoptions p { width: 550px; font-size: 11px;}
+.adminoptions p.note { width: 534px; padding: 8px; margin: 15px 0; text-align: center; background: #fffcb2; border: 1px solid #dcd986;}
+.info { width: 530px; padding: 10px; background-color: #f1f1f1;}

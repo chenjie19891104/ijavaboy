@@ -1,0 +1,41 @@
+@font-face {
+	font-family: 'QuicksandBook';
+	src: url('../../fonts/quicksand/quicksand_book.eot');
+	src: local('☺'), url('../../fonts/quicksand/quicksand_book.woff') format('woff'), url('../../fonts/quicksand/quicksand_book.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'QuicksandBoldOblique';
+	src: url('../../fonts/quicksand/quicksand_bold_oblique.eot');
+	src: local('☺'), url('../../fonts/quicksand/quicksand_bold_oblique.woff') format('woff'), url('../../fonts/quicksand/quicksand_bold_oblique.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'QuicksandBookOblique';
+	src: url('../../fonts/quicksand/quicksand_book_oblique.eot');
+	src: local('☺'), url('../../fonts/quicksand/quicksand_book_oblique.woff') format('woff'), url('../../fonts/quicksand/quicksand_book_oblique.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'QuicksandBold';
+	src: url('../../fonts/quicksand/quicksand_bold.eot');
+	src: local('☺'), url('../../fonts/quicksand/quicksand_bold.woff') format('woff'), url('../../fonts/quicksand/quicksand_bold.ttf') format('truetype');
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'QuicksandBold', sans-serif;
+}
+
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
+	font-family: 'QuicksandBoldOblique';
+}
+
+h1 em strong, h2 em strong, h3 em strong, h4 em strong, h5 em strong, h6 em strong {
+	font-family: 'QuicksandBoldOblique';
+}
+
+#nav {
+	font-family: 'QuicksandBook', sans-serif;
+	font-size: 14px;
+	text-transform: none;
+}

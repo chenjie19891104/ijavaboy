@@ -1,0 +1,10 @@
+/* DEFAULT CLEAN STYLESHEET */
+
+.post { position: relative; }
+.post .post-icon a  { position: absolute; top: 0px; right: 0px; display: block; overflow: hidden; width: 51px; height: 0; padding-top: 51px; background: url(../images/ico-post-icons.png) no-repeat 0 0; }
+.post .post-icon.link a  { background-position: 0 0; }
+.post .post-icon.video a  { background-position: 0 -53px; }
+.post .post-icon.article a  { background-position: 0 -106px; }
+.post .post-icon.audio a  { background-position: 0 -160px; }
+.post .post-icon.image a  { background-position: 0 -213px; }
+.post .post-icon.quote a  { background-position: 0 -266px; }
