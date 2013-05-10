@@ -1,0 +1,11 @@
+<apps>
+	<app>
+		<name>TestApplication1</name>
+		<file>com.ijavaboy.app.TestApplication1</file>
+	</app>
+	<app>
+		<name>TestApplication2</name>
+		<file>com.ijavaboy.app.TestApplication2</file>
+	</app>
+</apps>
+
