@@ -1,0 +1,25 @@
+package org.config.cache.data;
+
+import org.config.cache.StringArray;
+import org.config.cache.core.IConfig;
+
+/**
+ * ¹ÖÎï×éË¢ĞÂÅäÖÃ
+ * @author chenjie
+ * 2012-12-13
+ */
+public class MonsterRefreshConfig implements IConfig {
+
+	
+	
+	@Override
+	public void fromStringArray(StringArray values) {
+	}
+
+	@Override
+	public Integer getKey() {
+
+		return null;
+	}
+
+}

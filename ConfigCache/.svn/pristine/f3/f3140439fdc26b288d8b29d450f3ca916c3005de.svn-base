@@ -1,0 +1,264 @@
+package org.config.cache;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.config.cache.core.IConfig;
+import org.config.cache.core.IDecoder;
+import org.config.cache.core.IParser;
+import org.config.cache.core.IReader;
+import org.config.cache.data.AreaConfig;
+import org.config.cache.data.BuildingConfig;
+import org.config.cache.data.CityConfig;
+import org.config.cache.data.CityTypeConfig;
+import org.config.cache.data.ItemConfig;
+import org.config.cache.data.ItemExtendConfig;
+import org.config.cache.decode.json.DefaultJsonDecoder;
+import org.config.cache.decode.text.AreaDecoder;
+import org.config.cache.decode.text.BuildingDecoder;
+import org.config.cache.decode.text.CityDecoder;
+import org.config.cache.decode.text.CityTypeDecoder;
+import org.config.cache.decode.text.ItemDecoder;
+import org.config.cache.decode.text.ItemExtendDecoder;
+import org.config.cache.exception.SimpleConfigException;
+import org.config.cache.parser.JsonParser;
+import org.config.cache.parser.TextParser;
+import org.config.cache.reader.LineReader;
+import org.config.cache.reader.SimpleReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 添加一个注册表demo，需要进行如下操作
+ * 
+ * 1、定义一个配置实体DemoConfig，实现IConfig接口，对应于配置表中每一项
+ * 2、定义一个行解析器DemoTextDecoder,实现IDecoder接口，完成对demo表每一行的解析
+ * 3、在{ConfigType}枚举中增加一个新项，对应值为配置表的名称
+ * 4、在{ConfigEngine}的registerAll 方法中进行注册
+ * 
+ * @author chenjie
+ * 2012-12-10
+ */
+public final class ConfigEngine {
+	
+	private static final Logger logger = LoggerFactory.getLogger(ConfigEngine.class);
+	
+	public static final String TYPE_JSON = "json";
+	public static final String TYPE_TEXT = "text";
+	
+	public static final String DEFAULT_TEXT_DELIM = "\t";
+	
+	public static final String CONFIG_FOLDER_DIR = "file:///c:/cache/"; //配置文件所在目录
+	
+	private static class InstanceHolder{
+		protected static ConfigEngine instance = new ConfigEngine();
+	}
+	
+	private Map<ConfigType, ConfigWrapper<IConfig>> configCache;
+	private Map<ConfigType, IDecoder<IConfig>> decoders;
+	
+	private String type; //配置文件类型
+	
+	private ConfigEngine(){}
+	
+	public static final ConfigEngine getInstance(){
+		
+		return InstanceHolder.instance;
+	}
+	
+	/**
+	 * 初始化
+	 */
+	public void init(){
+		
+		this.configCache = new HashMap<ConfigType, ConfigWrapper<IConfig>>();
+		this.decoders = new HashMap<ConfigType, IDecoder<IConfig>>();
+		this.type = TYPE_TEXT;
+		
+		this.registerAll();
+	}
+	
+	/**
+	 * 注册所有配置表
+	 */
+	private void registerAll(){
+		
+		this.register(ConfigType.AREA, AreaConfig.class, AreaDecoder.class);
+		this.register(ConfigType.CITY, CityConfig.class, CityDecoder.class);
+		this.register(ConfigType.CITY_TYPE, CityTypeConfig.class, CityTypeDecoder.class);
+		this.register(ConfigType.ITEM, ItemConfig.class, ItemDecoder.class);
+		this.register(ConfigType.BUILDING, BuildingConfig.class, BuildingDecoder.class);
+		this.register(ConfigType.ITEMEXTEND, ItemExtendConfig.class, ItemExtendDecoder.class);
+	}
+	
+	/**
+	 * 获取配置项
+	 * @param configType
+	 * @param id
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends IConfig> T getConfig(ConfigType configType, Integer id){
+		
+		ConfigWrapper<T> wrapper = (ConfigWrapper<T>) this.configCache.get(configType);
+		
+		if(wrapper == null){
+			logger.error(String.format("The %s is not registered in the ConfigEngine", configType.toString()));
+			return null;
+		}
+		
+		IDecoder<T> decoder = (IDecoder<T>) this.decoders.get(configType);
+		
+		if(decoder == null){
+			logger.error(String.format("The decoder of %s is not registered in the ConfigEngine", configType.toString()));
+			return null;
+		}
+		
+		Map<Integer, T> items = (Map<Integer, T>)wrapper.getConfigItems();
+		if(items == null){
+			//第一次访问需要从配置文件中加载
+			if(TYPE_JSON.equals(this.type)){
+				items = this.readJson(wrapper.getConfigClazz(), wrapper.getConfigPath());
+				
+			}else if(TYPE_TEXT.equals(this.type)){
+				
+				items = this.readText(wrapper.getConfigClazz(), wrapper.getConfigPath(), decoder);
+			}
+			
+			if(items == null){
+				logger.error("The read return null");
+				return null;
+			}
+			
+			wrapper.setConfigItems(items);
+		}
+		
+		T t = (T)items.get(id);
+		
+		return t;
+		
+	}
+	
+	/**
+	 * 注册一个配置表，使用默认的地址
+	 * @param type
+	 * @param clazz
+	 * @param decoder
+	 */
+	private final <T extends IConfig> void register(ConfigType type, Class<T> clazz, Class<?> decoder){
+		
+		final String url = CONFIG_FOLDER_DIR + type.getValue()+".txt";
+		
+		this.register(type, clazz, decoder, url);
+	}
+	
+	/**
+	 * 注册一个配置表
+	 * @param type
+	 * @param clazz
+	 * @param decoder
+	 * @param url
+	 */
+	@SuppressWarnings("unchecked")
+	private final <T extends IConfig> void register(ConfigType type, Class<T> clazz, Class<?> decoder, String url){
+		
+		final Map<ConfigType, ConfigWrapper<IConfig>> configCache = this.configCache;
+		
+		ConfigWrapper<T> data = null;
+		
+		if(configCache.containsKey(type)){
+			data = (ConfigWrapper<T>)configCache.get(type);
+		}else{
+			data = new ConfigWrapper<T>();
+		}
+		
+		data.setConfigPath(url);
+		data.setConfigClazz(clazz);
+		
+		if(!configCache.containsKey(type)){
+			configCache.put(type, (ConfigWrapper<IConfig>) data);
+		}
+		
+		if(this.decoders.containsKey(type)){
+			return;
+		}
+		
+		try {
+			
+			IDecoder<IConfig> decode = (IDecoder<IConfig>)decoder.newInstance();
+			this.decoders.put(type, decode);
+			
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	/**
+	 * 使用默认的DefaultJsonDecoder读取json配置文件
+	 * @param clazz
+	 * @param url
+	 * @return
+	 */
+	private final <T extends IConfig> Map<Integer, T> readJson(Class<T> clazz, String url){
+		IDecoder<T> decoder = new DefaultJsonDecoder<T>(clazz);
+
+		Map<Integer, T> result = this.readJson(clazz, url, decoder);
+		
+		return result;
+	}
+	
+	/**
+	 * 读取并解析指定的json文件
+	 * @param clazz
+	 * @param url
+	 * @param decoder
+	 * @return
+	 */
+	private final <T extends IConfig> Map<Integer, T> readJson(Class<T> clazz, String url, IDecoder<T> decoder){
+		
+		IReader reader = new SimpleReader();
+		
+		IParser<T> parser = new JsonParser<T>(reader, decoder);
+		
+		try {
+			
+			return parser.parse(url);
+			
+		} catch (SimpleConfigException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 读取并解析指定的text文件
+	 * @param clazz
+	 * @param url
+	 * @param decoder
+	 * @return
+	 */
+	private final <T extends IConfig> Map<Integer, T> readText(Class<T> clazz, String url, IDecoder<T> decoder){
+		
+		IReader reader = new LineReader();
+		
+		IParser<T> parser = new TextParser<T>(reader, decoder);
+		
+		try {
+			
+			Map<Integer, T> maps = parser.parse(url);
+			
+			return maps;
+			
+		} catch (SimpleConfigException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,133 @@
+package org.config.cache.utils;
+
+import java.beans.PropertyDescriptor;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import org.config.cache.StringArray;
+import org.config.cache.exception.SimpleConfigException;
+
+/**
+ * @author chenjie
+ * 2012-12-5
+ */
+public final class StringUtils {
+
+	/**
+	 * 判断指定的字符串是否为空
+	 * @param str
+	 * @return
+	 */
+	public final static boolean isEmpty(String str){
+		
+		return str == null || str.trim().length() == 0;
+		
+	}
+	
+	/**
+	 * 将str以delim进行分隔,空字符串会被消掉
+	 * @param str
+	 * @param delim
+	 * @return
+	 */
+	public final static StringArray splitFull(String str, String delim){
+		
+		if(isEmpty(str)){
+			return null;
+		}
+		
+		StringTokenizer token = new StringTokenizer(str, delim);
+		
+		List<String> tokenList = new ArrayList<String>();
+		
+		while(token.hasMoreTokens()){
+			tokenList.add(token.nextToken());
+		}
+		
+		String[] elements = new String[tokenList.size()];
+		tokenList.toArray(elements);
+		
+		return new StringArray(elements);
+	}
+	
+	/**
+	 * 将str以delim进行分隔，但是空字符串也作为一个可用的元素
+	 * @param str
+	 * @param delim
+	 * @return
+	 */
+	public final static StringArray split(String str, String delim){
+		if(isEmpty(str)){
+			return null;
+		}
+		
+		System.out.println(str);
+		String[] elems = str.split(delim);
+		
+		return new StringArray(elems);
+	}
+	
+	/**
+	 * 将指定的字符串转换为int
+	 * @param str
+	 * @return
+	 */
+	public final static int toInt(String str){
+		if(isEmpty(str)){
+			return 0;
+		}
+		
+		Double d = Double.parseDouble(str);
+		
+		return d.intValue();
+		
+	}
+	
+	/**
+	 * 将指定的字符串转换为long
+	 * @param str
+	 * @return
+	 */
+	public final static long toLong(String str){
+		
+		if(isEmpty(str)){
+			return 0;
+		}
+		
+		Double d = Double.parseDouble(str);
+		
+		return d.longValue();
+	}
+	
+	/**
+	 * 将指定的字符串转换为float
+	 * @param str
+	 * @return
+	 */
+	public final static float toFloat(String str){
+		if(isEmpty(str)){
+			return 0.0f;
+		}
+		
+		Double d = Double.parseDouble(str);
+		
+		return d.floatValue();
+	}
+	
+	/**
+	 * 将指定的字符串转换为double
+	 * @param str
+	 * @return
+	 */
+	public final static double toDouble(String str){
+		if(isEmpty(str)){
+			return 0;
+		}
+		
+		Double d = Double.parseDouble(str);
+		
+		return d;
+	}
+	
+}

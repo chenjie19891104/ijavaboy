@@ -1,0 +1,59 @@
+package org.config.cache.parser;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
+
+import org.config.cache.core.AbstractParser;
+import org.config.cache.core.IConfig;
+import org.config.cache.core.IDecoder;
+import org.config.cache.core.IReader;
+import org.config.cache.exception.SimpleConfigException;
+import org.config.cache.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 以\t分隔元素，以\n分隔行的解析器
+ * @author chenjie
+ * 2012-12-10
+ */
+public class TextMapParser<T extends IConfig> extends AbstractParser<Map<String, T>, T> {
+
+	private static final Logger logger = LoggerFactory.getLogger(TextMapParser.class);
+	
+	public TextMapParser(IReader reader, IDecoder<T> decoder) {
+		super(reader, decoder);
+	}
+
+	@Override
+	public Map<String, T> parse(String url) throws SimpleConfigException {
+		String result = reader.read(url);
+		
+		if(StringUtils.isEmpty(result)){
+			logger.debug(String.format("the text read from %s is empty", url));
+			return null;
+		}
+		
+		Map<String, T> map = new HashMap<String, T>();
+		StringTokenizer token = new StringTokenizer(result, "\n");
+		
+		while(token.hasMoreTokens()){
+			
+			String item = token.nextToken();
+			T e = decoder.decode(item.trim());
+			
+			if(e != null){
+				map.put(e.getKey(), e);
+			}
+			
+		}
+		
+		System.out.println("size : " + map.size());
+		
+		return map;
+	}
+
+
+
+}

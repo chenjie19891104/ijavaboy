@@ -1,0 +1,63 @@
+package org.config.cache.parser;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.config.cache.core.AbstractParser;
+import org.config.cache.core.IConfig;
+import org.config.cache.core.IDecoder;
+import org.config.cache.core.IReader;
+import org.config.cache.exception.SimpleConfigException;
+import org.config.cache.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * 对Json类型文件的读取和解析
+ * @author chenjie
+ * 2012-12-10
+ */
+public class JsonParser<E extends IConfig> extends AbstractParser<Map<Integer, E>, E>{
+	private static final Logger logger = LoggerFactory.getLogger(JsonParser.class);
+	
+	public JsonParser(IReader reader, IDecoder<E> decoder) {
+		super(reader, decoder);
+	}
+
+	@Override
+	public Map<Integer, E> parse(String url) throws SimpleConfigException {
+		
+		String result = reader.read(url);
+		
+		if(StringUtils.isEmpty(result)){
+			logger.debug(String.format("the text read from %s is empty", url));
+			return null;
+		}
+		
+		JSONArray array = JSON.parseArray(result);
+		
+		if(array != null && array.size() > 0){
+			
+			Map<Integer, E> map = new HashMap<Integer, E>();
+			for(int i=0; i<array.size(); i++){
+				
+				JSONObject item = array.getJSONObject(i);
+				
+				E e = decoder.decode(item.toJSONString());
+				
+				map.put(e.getKey(), e);
+			}
+			return map;
+		}else {
+			
+			logger.debug("Load 0 result from the path " + url);
+			
+			return null;
+		}
+	}
+
+}

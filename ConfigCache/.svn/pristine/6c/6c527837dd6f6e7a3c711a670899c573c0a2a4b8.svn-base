@@ -1,0 +1,27 @@
+package org.config.cache.core;
+
+import org.config.cache.StringArray;
+
+/**
+ * 所有配置类都需要实现该接口
+ * 
+ * 同时，所有配置类都只可以拥有int(Integer),long(Long),float(Float),double(Double),String,五种类型的属性
+ * 
+ * 如果使用DefaultJsonDecoder,则所有的属性必须使用对象类型，即不适用int,而使用Integer，其他相同
+ * 
+ * 每个配置实体类必须有id属性
+ * 每个配置实体类必须拥有getter和setter方法
+ * @author chenjie
+ * 2012-12-5
+ */
+public interface IConfig {
+	
+	/**
+	 * 从values中进行类型转换并赋值
+	 * @param values
+	 */
+	public void fromStringArray(StringArray values);
+	public String getKey();
+	
+
+}

@@ -1,0 +1,80 @@
+package org.config.cache.test;
+
+import org.config.cache.ConfigEngine;
+import org.config.cache.ConfigType;
+import org.config.cache.data.AreaConfig;
+import org.config.cache.data.BuildingConfig;
+import org.config.cache.data.CityConfig;
+import org.config.cache.data.CityTypeConfig;
+import org.config.cache.data.ItemConfig;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * @author chenjie
+ * 2012-12-5
+ */
+public class ConfigTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void configTest(){
+		
+		ConfigEngine engine = ConfigEngine.getInstance();
+		
+		engine.init();
+		
+		BuildingConfig config = engine.getConfig(ConfigType.BUILDING, 30000);
+		
+		System.out.println(config.toString());
+	}
+
+//	@Test
+//	public void testParser() throws SimpleConfigException{
+//		
+//		String path = "file:///c:/cache/area";
+//		
+//		IReader reader = new LineReader();
+//		IDecoder<Area> decode = new AreaTextDecoder();
+//		
+//		IParser<Area> parser = new TextParser<Area>(reader, decode);
+//		
+//		Map<Integer, Area> result = parser.parse(path);
+//		
+//		if(result != null && result.size() > 0){
+//			
+//			Iterator<Integer> keySet = result.keySet().iterator();
+//			while(keySet.hasNext()){
+//				Area a = result.get(keySet.next());
+//				System.out.println(a.toString());
+//			}
+//		}else {
+//			System.out.println("null");
+//		}
+//	}
+	
+//	@Test
+//	public void testReader() {
+//		
+//		//String path = "http://192.168.1.6:8088/JsonFile/area";
+//		
+//		String path = "file:///c:/cache/castle_base";
+//		
+//		try {
+//			
+//			//Map<Integer, Area> areaMap = JSONReader.read(path, Area.class);
+//			IReader reader = new LineReader();
+//			String result = reader.read(path);
+//			
+//			System.out.println(result);
+//			
+//		} catch (SimpleConfigException e) {
+//			e.printStackTrace();
+//		}
+//		
+//	}
+
+}

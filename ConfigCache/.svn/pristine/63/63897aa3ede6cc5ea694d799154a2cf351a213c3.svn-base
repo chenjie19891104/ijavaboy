@@ -1,0 +1,86 @@
+package org.config.cache.data;
+
+import org.config.cache.StringArray;
+import org.config.cache.core.IConfig;
+
+/**
+ * π˙º“≈‰÷√±Ì
+ * @author chenjie
+ * 2012-12-12
+ */
+public class CountryConfig implements IConfig {
+
+	private Integer id;
+	private String name;
+	private Integer capitalID;
+	private Integer r;
+	private Integer g;
+	private Integer b;
+	
+	@Override
+	public void fromStringArray(StringArray values) {
+		this.id = values.getInt();
+		this.name = values.getString();
+		this.capitalID = values.getInt();
+		this.r = values.getInt();
+		this.g = values.getInt();
+		this.b = values.getInt();
+	}
+
+	@Override
+	public String getKey() {
+
+		return this.id+"";
+	}
+
+	public final String getName() {
+		return name;
+	}
+
+	public final void setName(String name) {
+		this.name = name;
+	}
+
+	public final Integer getCapitalID() {
+		return capitalID;
+	}
+
+	public final void setCapitalID(Integer capitalID) {
+		this.capitalID = capitalID;
+	}
+
+	public final Integer getR() {
+		return r;
+	}
+
+	public final void setR(Integer r) {
+		this.r = r;
+	}
+
+	public final Integer getG() {
+		return g;
+	}
+
+	public final void setG(Integer g) {
+		this.g = g;
+	}
+
+	public final Integer getB() {
+		return b;
+	}
+
+	public final void setB(Integer b) {
+		this.b = b;
+	}
+
+	public final void setId(Integer id) {
+		this.id = id;
+	}
+
+	public final Integer getId() {
+		return id;
+	}
+	
+	
+
+}

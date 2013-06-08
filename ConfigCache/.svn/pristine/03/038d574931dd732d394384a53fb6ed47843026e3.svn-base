@@ -1,0 +1,144 @@
+package org.config.cache;
+
+import org.config.cache.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * 对String数组的封装
+ * @author chenjie
+ * 2012-12-11
+ */
+public class StringArray {
+	private static final Logger logger = LoggerFactory.getLogger(StringArray.class);
+	
+	private String[] array; //String 数组
+	
+	private int currentIndex; //当前位置
+	
+	public StringArray(String[] array){
+		
+		this.array = array;
+		this.currentIndex = 0;
+	}
+	/**
+	 * 判断当前数组是否越界
+	 * @return
+	 */
+	private boolean reachMax(){
+		
+		return array == null ? true : currentIndex >= array.length;
+	}
+	
+	/**
+	 * 获取当前项
+	 * @return
+	 */
+	private String getCurrent(){
+		if(reachMax()){
+			logger.error("The currentIndex reached the max length of the array");
+			return null;
+		}
+		
+		String current = array[currentIndex++];
+		
+		if(StringUtils.isEmpty(current)){
+			return null;
+		}
+		
+		//过滤注释项
+		while(current.startsWith("#") && currentIndex < array.length){
+			current = array[currentIndex++];
+		}
+		
+		if(currentIndex < array.length){
+			return current.trim();
+		}else {
+			return null;
+		}
+	}
+	
+	/**
+	 * 判断是否该array中所有项是否都是注释或者空
+	 * @return
+	 */
+	public boolean isCommentLine(){
+		
+		if(this.isEmpty()){
+			return true;
+		}
+		
+		final String[] array = this.array;
+		
+		for(final String s : array){
+			
+			if(!StringUtils.isEmpty(s) && !s.startsWith("#")){
+				return false;
+			}
+			
+		}
+		
+		return true;
+	}
+	
+	public boolean isEmpty(){
+		
+		return this.length()==0;
+	}
+	
+	/**
+	 * 返回当前数组的长度
+	 * @return
+	 */
+	public int length(){
+		
+		return this.array == null ? 0 : this.array.length;
+	}
+	
+	/**
+	 * 获取String类型的值
+	 * @return
+	 */
+	public String getString(){
+		
+		return getCurrent();
+	}
+	/**
+	 * 获取int类型的值
+	 * @return
+	 */
+	public Integer getInt(){
+		
+		return getDouble().intValue();
+	}
+	
+	/**
+	 * 获取long类型的值
+	 * @return
+	 */
+	public Long getLong(){
+		
+		return getDouble().longValue();
+	}
+	
+	/**
+	 * 获取float类型的值
+	 * @return
+	 */
+	public Float getFloat(){
+		
+		return getDouble().floatValue();
+	}
+	
+	/**
+	 * 获取Double类型的值
+	 * @return
+	 */
+	public Double getDouble(){
+		
+		String current = getCurrent();
+		
+		return current == null ? 0d : Double.parseDouble(current);
+		
+	}
+}

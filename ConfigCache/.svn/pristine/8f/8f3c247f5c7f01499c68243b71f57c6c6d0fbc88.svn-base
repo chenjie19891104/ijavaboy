@@ -1,0 +1,27 @@
+package org.config.cache;
+
+/**
+ * ≈‰÷√¿‡–Õ
+ * @author chenjie
+ * 2012-12-10
+ */
+public enum ConfigType {
+
+	AREA("AreaTable"),
+	CITY("CityTable"),
+	CITY_TYPE("CityTypeTable"),
+	ITEM("ItemTable"),
+	BUILDING("BuildTable"),
+	ITEMEXTEND("ItemExtendTable"),
+	;
+	
+	private String value;
+	
+	private ConfigType(String value) {
+		this.value = value;
+	}
+	
+	public String getValue(){
+		return this.value;
+	}
+}

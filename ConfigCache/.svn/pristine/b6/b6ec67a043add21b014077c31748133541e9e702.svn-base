@@ -1,0 +1,49 @@
+package org.config.cache;
+
+import java.util.Map;
+
+import org.config.cache.core.IConfig;
+
+/**
+ * 对每一配置的封装
+ * @author chenjie
+ * 2012-12-10
+ */
+public class ConfigWrapper<T extends IConfig> {
+
+	private String configPath; //配置文件地址
+	
+	private Class<T> configClazz; //配置文件对应的实体类型
+	
+	private Map<Integer, T> configItems; //配置内容
+
+	public final String getConfigPath() {
+		return configPath;
+	}
+
+	public final void setConfigPath(String configPath) {
+		this.configPath = configPath;
+	}
+
+	public final Class<T> getConfigClazz() {
+		return configClazz;
+	}
+
+	public final void setConfigClazz(Class<T> configClazz) {
+		this.configClazz = configClazz;
+	}
+
+	public final Map<Integer, T> getConfigItems() {
+		return configItems;
+	}
+
+	public final void setConfigItems(Map<Integer, T> configItems) {
+		this.configItems = configItems;
+	}
+
+
+
+
+	
+	
+}

@@ -1,0 +1,56 @@
+package org.config.cache.parser;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import org.config.cache.core.AbstractParser;
+import org.config.cache.core.IConfig;
+import org.config.cache.core.IDecoder;
+import org.config.cache.core.IReader;
+import org.config.cache.exception.SimpleConfigException;
+import org.config.cache.utils.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * @author chenjie
+ * 2012-12-13
+ */
+public class TextListParser<T extends IConfig> extends AbstractParser<List<T>, T> {
+	private static final Logger logger = LoggerFactory.getLogger(TextListParser.class);
+
+	public TextListParser(IReader reader, IDecoder<T> decoder) {
+		super(reader, decoder);
+	}
+
+	@Override
+	public List<T> parse(String url) throws SimpleConfigException {
+		
+		String result = reader.read(url);
+		
+		if(StringUtils.isEmpty(result)){
+			logger.debug(String.format("the text read from %s is empty", url));
+			return null;
+		}
+		
+		List<T> list = new ArrayList<T>();
+		StringTokenizer token = new StringTokenizer(result, "\n");
+		
+		while(token.hasMoreTokens()){
+			
+			String item = token.nextToken();
+			T e = decoder.decode(item);
+			
+			if(e != null){
+				list.add(e);
+			}
+			
+		}
+		
+		logger.debug("read "+list.size());
+		
+		return list;
+	}
+
+}

@@ -1,0 +1,227 @@
+package org.config.cache.data;
+
+import org.config.cache.StringArray;
+import org.config.cache.core.IConfig;
+
+/**
+ * 英雄配置表
+ * @author zhangchun
+ * 2012-12-12
+ */
+public class HeroConfig implements IConfig {	
+	private Integer id;//武将id
+	private String name;//武将名称	
+	private Integer quality;//武将的品阶，1-3分别代表普通、名士、传奇,4为玩家武将模版
+	private String iconId;//武将的的头像
+	private Integer command;//武将的统御力
+	private Integer commandGrowth;//武将率兵数的智力值	
+	private Integer strength;//武将初始的武力值
+	private Integer strengthGrowth;//武将初始的武力增长值
+	private Integer intelligence;//武将初始的智力值
+	private Integer intelligenceGrowth;//武将初始的智力增长		
+	private Integer skill1;//武将的天生技能skill1，技能1
+	private Integer skill2;//武将的天生技能skill2，技能2
+	private Integer skill3;//武将的天生技能skill3，技能3
+	private Integer skill4;//武将的天生技能skill4，技能4
+	private Integer skill5;//武将的天生技能skill5，技能5
+	private Integer skill6;//武将的天生技能skill6，技能6	
+	private Integer geniusFoot;//武将的初始步兵相性 0-5 分别对应 无-S。
+	private Integer geniusBow;//武将的初始弓兵相性 0-5 分别对应 无-S。
+	private Integer geniusKnight;//武将的初始骑兵相性 0-5 分别对应 无-S。
+	private Integer geniusEquipment;//武将的初始器械相性 0-5 分别对应 无-S。	
+	
+	@Override
+	public void fromStringArray(StringArray values) {
+		
+		this.id = values.getInt();
+		this.name = values.getString();
+		this.quality=values.getInt();
+		this.iconId=values.getString();
+		this.command=values.getInt();
+		this.commandGrowth=values.getInt();
+		this.strength=values.getInt();
+		this.strengthGrowth=values.getInt();
+		this.intelligence=values.getInt();
+		this.intelligenceGrowth=values.getInt();
+		this.skill1=values.getInt();
+		this.skill2=values.getInt();
+		this.skill3=values.getInt();
+		this.skill4=values.getInt();
+		this.skill5=values.getInt();
+		this.skill6=values.getInt();
+		this.geniusFoot=values.getInt();
+		this.geniusBow=values.getInt();
+		this.geniusKnight=values.getInt();
+		this.geniusEquipment =values.getInt();
+	}
+
+	@Override
+	public String getKey() {
+
+		return this.id+"";
+	}
+
+
+
+	public final String getName() {
+		return name;
+	}
+
+	public final void setName(String name) {
+		this.name = name;
+	}
+
+	public final Integer getQuality() {
+		return quality;
+	}
+
+	public final void setQuality(Integer quality) {
+		this.quality = quality;
+	}
+
+	public final String getIconId() {
+		return iconId;
+	}
+
+	public final void setIconId(String iconId) {
+		this.iconId = iconId;
+	}
+
+	public final int getCommand() {
+		return command;
+	}
+
+	public final void setCommand(int command) {
+		this.command = command;
+	}
+
+	public final Integer getCommandGrowth() {
+		return commandGrowth;
+	}
+
+	public final void setCommandGrowth(Integer commandGrowth) {
+		this.commandGrowth = commandGrowth;
+	}
+
+	public final Integer getStrength() {
+		return strength;
+	}
+
+	public final void setStrength(Integer strength) {
+		this.strength = strength;
+	}
+
+	public final Integer getStrengthGrowth() {
+		return strengthGrowth;
+	}
+
+	public final void setStrengthGrowth(Integer strengthGrowth) {
+		this.strengthGrowth = strengthGrowth;
+	}
+
+	public final Integer getIntelligence() {
+		return intelligence;
+	}
+
+	public final void setIntelligence(Integer intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public final Integer getIntelligenceGrowth() {
+		return intelligenceGrowth;
+	}
+
+	public final void setIntelligenceGrowth(Integer intelligenceGrowth) {
+		this.intelligenceGrowth = intelligenceGrowth;
+	}
+
+	public final int getSkill1() {
+		return skill1;
+	}
+
+	public final void setSkill1(int skill1) {
+		this.skill1 = skill1;
+	}
+
+	public final int getSkill2() {
+		return skill2;
+	}
+
+	public final void setSkill2(int skill2) {
+		this.skill2 = skill2;
+	}
+
+	public final int getSkill3() {
+		return skill3;
+	}
+
+	public final void setSkill3(int skill3) {
+		this.skill3 = skill3;
+	}
+
+	public final int getSkill4() {
+		return skill4;
+	}
+
+	public final void setSkill4(int skill4) {
+		this.skill4 = skill4;
+	}
+
+	public final int getSkill5() {
+		return skill5;
+	}
+
+	public final void setSkill5(int skill5) {
+		this.skill5 = skill5;
+	}
+
+	public final int getSkill6() {
+		return skill6;
+	}
+
+	public final void setSkill6(int skill6) {
+		this.skill6 = skill6;
+	}
+
+	public final int getGeniusFoot() {
+		return geniusFoot;
+	}
+
+	public final void setGeniusFoot(int geniusFoot) {
+		this.geniusFoot = geniusFoot;
+	}
+
+	public final int getGeniusBow() {
+		return geniusBow;
+	}
+
+	public final void setGeniusBow(int geniusBow) {
+		this.geniusBow = geniusBow;
+	}
+
+	public final int getGeniusKnight() {
+		return geniusKnight;
+	}
+
+	public final void setGeniusKnight(int geniusKnight) {
+		this.geniusKnight = geniusKnight;
+	}
+
+	public final int getGeniusEquipment() {
+		return geniusEquipment;
+	}
+
+	public final void setGeniusEquipment(int geniusEquipment) {
+		this.geniusEquipment = geniusEquipment;
+	}
+
+	public final void setId(Integer id) {
+		this.id = id;
+	}
+
+	public final Integer getId() {
+		return id;
+	}
+
+	
+}
